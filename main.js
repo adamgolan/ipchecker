@@ -12,7 +12,6 @@ http.get('https://api.ipify.org?format=json', function (resp) {
         var dbx = new Dropbox({ 
             accessToken: config.token
         });
-        console.log(JSON.parse(data));
         dbx.filesUpload({ path: '/' + 'ip.txt', contents: '' + new Date() + ': ' + JSON.parse(data).ip, mode: { ".tag": 'overwrite'} });
     });
 }).on("error", function (e) {
